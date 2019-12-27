@@ -6,8 +6,6 @@ h2o.init()
 fifa <- read.csv("C:/Users/Documents/fifa_19.csv")
 fifa$Overall_binary <- ifelse(fifa$Overall > 75,1,0)
 
-## Run Model for Gaussian of predicting overall player rating by attribute ratings ####
-
 ##### This function runs the binomial regression and gives a confusion matrix #######
 
 logit_h2o_fun <- function(fifa_dat){
@@ -65,7 +63,7 @@ View(all_positions_confusion_matrix)
 
 
 
-
+## Run Other Types of Models ####
 
 fifa_data <- as.h2o(fifa,destination_frame = "fifa.hex")
 h2o.describe(fifa_data)
@@ -102,7 +100,7 @@ pred.deep.fifa <- h2o.predict(object = fit.deep.fifa,
 
 
 
-## DBPlyr use 
+## Dplyr & dbplyr Example ####
 
 library(dplyr)
 
